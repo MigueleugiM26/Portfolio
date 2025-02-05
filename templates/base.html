@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    {% block css %} {% endblock %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/variables.css' %}"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/atributos.css' %}"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/fontes.css' %}"
+    />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title></title>
+  </head>
+  <body>
+    {% block header %} {% endblock %} {% block 'dashboard' %} {% endblock %} {%block footer%} {% endblock %}
+  </body>
+</html>
