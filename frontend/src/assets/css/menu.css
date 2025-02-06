@@ -1,0 +1,89 @@
+a {
+  text-decoration: none;
+  display: block;
+  height: 75%;
+  margin: auto;
+}
+
+a:focus,
+a:hover {
+  outline: none;
+}
+
+.menuContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 1rem 0 1rem;
+  background-color: #181818;
+  border-radius: 15px;
+  border: 1px #8a8080 solid;
+  height: 3rem;
+
+  position: absolute;
+  left: 2rem;
+  bottom: 2rem;
+}
+
+.menuButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: monospace, sans-serif;
+  font-size: 9px;
+  font-weight: bolder;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  background-color: transparent;
+  height: 100%;
+  border-radius: 12px;
+  border: 1px transparent solid;
+}
+
+.menuButton:hover {
+  background-color: #212121;
+  border: 1px #383737 solid;
+}
+
+.menuButton:active {
+  background-color: #302f2f;
+  border: 1px #413e3e solid;
+}
+
+.activeMenuButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: monospace, sans-serif;
+  cursor: default;
+  font-size: 9px;
+  font-weight: bolder;
+  text-align: center;
+  user-select: none;
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  height: 100%;
+  border-radius: 12px;
+  background-color: #302f2f;
+  border: 1px #413e3e solid;
+}
+
+.activeMenuButton:hover,
+.activeMenuButton:active {
+  background-color: #302f2f;
+  border: 1px #413e3e solid;
+}
+
+.menuImagem {
+  width: 1rem;
+  filter: invert(100%);
+  -webkit-filter: invert(100%);
+  pointer-events: none;
+}
