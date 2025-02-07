@@ -1,0 +1,112 @@
+html,
+body {
+  width: 100%;
+}
+
+#home-react {
+  width: 100%;
+  height: 100%;
+}
+
+.homeContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 7rem;
+  justify-content: center;
+  margin: auto;
+  padding: auto;
+}
+
+.homeSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background-color: transparent;
+  min-width: 20rem;
+  min-height: 30rem;
+  max-width: 50rem;
+  border-radius: 15px;
+  margin-top: 3rem;
+  padding: 2rem 1rem 2rem 1rem;
+}
+
+.homePFP {
+  width: 10rem;
+  border-radius: 50%;
+  outline: 1px #8a8080 solid;
+  outline-offset: 0.5rem;
+}
+
+.homeButtonContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.homeButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: #242424;
+  font-size: 8px;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+  padding: 0.25rem 1.5rem 0.25rem 1.5rem;
+  border-radius: 12px;
+  border: 1px #383737 solid;
+  transition: 0.3s;
+}
+
+.homeButton:hover {
+  background-color: #302f2f;
+  border: 1px #413e3e solid;
+}
+
+.homeButton:active {
+  background-color: #3f3d3d;
+  border: 1px #554f4f solid;
+}
+
+.sideTopicos {
+  position: fixed;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 2rem;
+}
+
+.sideElement {
+  all: unset;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 0;
+  transition: 0.3s;
+  border: 0px transparent solid;
+}
+
+.sideElement:hover,
+.sideElement:active {
+  color: #8a8080;
+  margin-left: 0.5rem;
+  border: 0px transparent solid;
+}
+
+.sticky {
+  position: sticky;
+  top: 3rem;
+  height: calc(100vh - 3rem);
+}

@@ -21,7 +21,7 @@ const Menu = () => {
             }`}
           >
             <img
-              src={getStaticPath("img/icons/home.png")}
+              src={getStaticPath("img/icons/home.webp")}
               className="menuImagem"
               alt="Home"
             />
@@ -36,7 +36,7 @@ const Menu = () => {
             }`}
           >
             <img
-              src={getStaticPath("img/icons/computer.png")}
+              src={getStaticPath("img/icons/computer.webp")}
               className="menuImagem"
               alt="Projetos"
             />
@@ -51,7 +51,7 @@ const Menu = () => {
             }`}
           >
             <img
-              src={getStaticPath("img/icons/galery.png")}
+              src={getStaticPath("img/icons/galery.webp")}
               className="menuImagem"
               alt="Galeria"
             />

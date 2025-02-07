@@ -1,3 +1,7 @@
+* {
+  font-family: monospace, sans-serif;
+}
+
 a {
   text-decoration: none;
   display: block;
@@ -8,6 +12,12 @@ a {
 a:focus,
 a:hover {
   outline: none;
+}
+
+#menu-react {
+  position: fixed;
+  left: 0;
+  bottom: 0;
 }
 
 .menuContainer {
@@ -33,7 +43,6 @@ a:hover {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  font-family: monospace, sans-serif;
   font-size: 9px;
   font-weight: bolder;
   text-align: center;
@@ -44,6 +53,7 @@ a:hover {
   height: 100%;
   border-radius: 12px;
   border: 1px transparent solid;
+  transition: 0.3s;
 }
 
 .menuButton:hover {
@@ -83,6 +93,7 @@ a:hover {
 
 .menuImagem {
   width: 1rem;
+  height: 1rem;
   filter: invert(100%);
   -webkit-filter: invert(100%);
   pointer-events: none;
