@@ -48,7 +48,7 @@ const Home = () => {
         </section>
 
         <section className="homeSection">
-          <h1 ref={introducaoRef}>Intrudução</h1>
+          <h1 ref={introducaoRef}>Introdução</h1>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut
             dolor dictum, tempor libero aliquam, imperdiet elit. Integer posuere

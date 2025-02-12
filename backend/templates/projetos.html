@@ -2,10 +2,123 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    {% block 'css' %} {% endblock %}
+    {% block css %}
+    <title>Projetos</title>
+    {% endblock %}
   </head>
 
   <body>
-    {% block 'dashboard' %} {% endblock %}
+    {% block 'dashboard' %}
+    <div class="projetosContainer">
+      <h1>Projetos</h1>
+
+      {% for projeto in projetos %}
+      <div class="projetoItem">
+        <h2>{{ projeto.nome }}</h2>
+        <h4>{{ projeto.descricao }}</h4>
+
+        {% if projeto.imagens %}
+        <img
+          src="{% static 'img/' %}{{ projeto.imagens.0 }}"
+          alt="Imagem de {{ projeto.nome }}"
+          class="projetoImg"
+        />
+
+        {% else %}
+        <p>Sem Imagens</p>
+        {% endif %}
+
+        <p>{{ projeto.tipo }}</p>
+        <p>
+          <img
+            src="{% static 'img/icons/code.webp' %}"
+            alt="Data"
+            class="menuImagem"
+          />
+          {{ projeto.tecnologias }}
+        </p>
+        <p>
+          <img
+            src="{% static 'img/icons/calendar.webp' %}"
+            alt="Data"
+            class="menuImagem"
+          />
+          {{ projeto.periodo }}
+        </p>
+        <p>Status: {{ projeto.status }}</p>
+        <p>
+          <img
+            src="{% static 'img/icons/user.webp' %}"
+            alt="Equipe"
+            class="menuImagem"
+          />
+          {{ projeto.equipe }}
+        </p>
+        <div>
+          {% if projeto.repo %}
+          <a href="{{ projeto.repo }}" target="blank">
+            <button class="homeButton">
+              <img
+                src="{% static 'img/icons/github.webp'%}"
+                class="menuImagem"
+                alt="GitHub"
+              />
+              <h2>GitHub</h2>
+            </button>
+          </a>
+          {% endif %} {% if projeto.figma %}
+          <a href="{{ projeto.figma }}" target="blank">
+            <button class="homeButton">
+              <img
+                src="{% static 'img/icons/figma.webp'%}"
+                class="menuImagem"
+                alt="Figma"
+              />
+              <h2>Figma</h2>
+            </button>
+          </a>
+          {% endif %}
+        </div>
+        <br />
+      </div>
+      {% empty %}
+      <p>Não há projetos disponíveis.</p>
+      {% endfor %}
+    </div>
+
+    <div id="overlay" class="imageOverlay"></div>
+
+    <script>
+      window.addEventListener("load", function () {
+        const images = document.querySelectorAll(".projetoImg");
+
+        images.forEach((image) => {
+          image.onload = function () {
+            const width = image.naturalWidth;
+            const height = image.naturalHeight;
+
+            if (width > height) {
+              image.style.width = "50rem";
+              image.style.height = "auto";
+            } else {
+              image.style.height = "25rem";
+              image.style.width = "auto";
+            }
+          };
+
+          if (image.complete) {
+            image.onload();
+          }
+
+          image.addEventListener("click", function () {
+            image.classList.toggle("enlargedImage");
+
+            overlay.classList.toggle("active");
+          });
+        });
+      });
+    </script>
+
+    {% endblock %}
   </body>
 </html>
