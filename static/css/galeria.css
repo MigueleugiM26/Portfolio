@@ -1,0 +1,31 @@
+.galeriaContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  gap: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.galeria {
+  width: 80vh;
+  margin: auto;
+}
+
+.galeria img {
+  width: 25rem;
+  margin-top: 1rem;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+}
+
+.galeria img:hover {
+  filter: brightness(70%);
+}
+
+.galeria img:active {
+  filter: brightness(50%);
+}

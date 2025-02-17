@@ -17,4 +17,10 @@ def projetos(request):
 
 
 def galeria(request):
-    return render (request, 'galeria.html')
+    projetos = Projetos.objects.all().order_by('id')  
+    
+    context = {
+        'projetos': projetos,
+    }
+
+    return render (request, 'galeria.html', context)

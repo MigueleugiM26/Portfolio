@@ -2,10 +2,65 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    {% block 'css' %} {% endblock %}
+    {% block css %}
+    <title>Galeria</title>
+    {% endblock %}
   </head>
 
   <body>
-    {% block 'dashboard' %} {% endblock %}
+    {% block 'dashboard' %}
+    <div class="galeriaContainer">
+      <h1>Galeria</h1>
+
+      <div class="galeria">
+        {% for projeto in projetos %} {% for imagem in projeto.imagens %}
+        <img
+          src="{% static 'img/' %}{{ imagem }}"
+          alt="Imagem de {{ projeto.nome }}"
+        />
+        {% endfor %} {% empty %}{% endfor %}
+      </div>
+    </div>
+
+    <div id="overlay">
+      <img id="zoomedImage" src="" alt="Zoomed Image" />
+    </div>
+
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var grid = document.querySelector(".galeria");
+        var overlay = document.getElementById("overlay");
+        var zoomedImage = document.getElementById("zoomedImage");
+
+        imagesLoaded(grid, function () {
+          new Masonry(grid, {
+            itemSelector: "img",
+            columnWidth: 10,
+            gutter: 50,
+            fitWidth: true,
+          });
+        });
+
+        document.querySelectorAll(".galeria img").forEach((image) => {
+          image.addEventListener("click", function () {
+            zoomedImage.src = image.src;
+            zoomedImage.alt = image.alt;
+            overlay.classList.add("active");
+          });
+        });
+
+        overlay.addEventListener("click", function () {
+          overlay.classList.add("fade-out");
+
+          setTimeout(() => {
+            overlay.classList.remove("active", "fade-out");
+          }, 300);
+        });
+      });
+    </script>
+
+    {% endblock %}
   </body>
 </html>
