@@ -54,7 +54,7 @@ const Home = () => {
     <>
       <div className="homeContainer">
         <section className="homeSection sticky">
-          <img src={getStaticPath("img/pfp.jpeg")} className="homePFP" />
+          <img src={getStaticPath("img/pfp.webp")} className="homePFP" />
           <div className="homeButtonContainer">
             <a href="https://github.com/MigueleugiM26" target="blank">
               <button className="homeButton">
