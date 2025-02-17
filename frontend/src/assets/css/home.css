@@ -182,5 +182,6 @@ body {
 
   .info p {
     max-width: 100%;
+    font-size: 1.65vmax !important;
   }
 }
