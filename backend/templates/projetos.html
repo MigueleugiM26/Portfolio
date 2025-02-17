@@ -43,7 +43,7 @@
           <img
             src="{% static 'img/icons/code.webp' %}"
             alt="Data"
-            class="menuImagem"
+            class="menuImagem tecnologias"
           />
           {{ projeto.tecnologias }}
         </p>
@@ -128,6 +128,7 @@
 
           button.innerHTML = `<hr /> ${projectName}`;
           button.classList.add("sideElement");
+          button.classList.add("s15");
 
           button.addEventListener("click", function () {
             project.scrollIntoView({ behavior: "smooth" });

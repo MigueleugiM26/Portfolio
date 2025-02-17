@@ -103,21 +103,21 @@ const Home = () => {
         <div className="sideTopicos">
           <button
             onClick={() => scrollToSection(introducaoRef)}
-            className="sideElement"
+            className="sideElement s16"
           >
             <hr /> Introdução
           </button>
 
           <button
             onClick={() => scrollToSection(formacaoRef)}
-            className="sideElement"
+            className="sideElement s16"
           >
             <hr /> Formação
           </button>
 
           <button
             onClick={() => scrollToSection(habilidadesRef)}
-            className="sideElement"
+            className="sideElement s16"
           >
             <hr /> Habilidades Técnicas
           </button>

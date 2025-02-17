@@ -98,3 +98,24 @@ a:hover {
   -webkit-filter: invert(100%);
   pointer-events: none;
 }
+
+@media (max-width: 1200px) {
+  .menuContainer {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 900px) {
+  .menuContainer {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .menuButton h2,
+  .activeMenuButton h2 {
+    display: none;
+  }
+}

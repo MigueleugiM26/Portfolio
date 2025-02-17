@@ -135,3 +135,78 @@
 #overlay.fade-out {
   opacity: 0;
 }
+
+@media (max-width: 1625px) {
+}
+
+@media (max-width: 1200px) {
+  .projetosContainer {
+    margin-bottom: 5rem;
+  }
+  .projetosContainer h1 {
+    margin: 3rem auto;
+    align-self: center;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 900px) {
+  h1 {
+    font-size: 4.4vmax !important;
+  }
+
+  .projetoItem h2 {
+    margin: auto;
+    text-align: center;
+  }
+
+  .projetoItem h4 {
+    max-width: 80%;
+    margin: 1rem auto 1rem auto;
+  }
+
+  .homeButton h2 {
+    margin: 0.5rem auto 0.5rem auto;
+  }
+
+  .projetoImg {
+    max-width: 80%;
+  }
+
+  .projetoItem {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .imgContainer {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 1rem;
+    max-width: 70%;
+    margin: auto;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .imgPequena {
+    max-width: 5rem;
+  }
+
+  .projetosContainer {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 795px) {
+  .projetoItem p {
+    max-width: 80%;
+    margin: auto;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .tecnologias {
+    display: none !important;
+  }
+}
