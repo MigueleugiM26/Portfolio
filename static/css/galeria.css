@@ -13,11 +13,13 @@
   width: 80vh;
   margin: auto;
   margin-bottom: 5rem;
+  position: relative;
 }
 
 .galeria img {
   width: 40vh;
-  margin-top: 1rem;
+  margin: 1rem auto;
+  margin-left: -1rem;
   border-radius: 15px;
   cursor: pointer;
   transition: filter 0.3s ease;
