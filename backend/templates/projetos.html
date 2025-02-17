@@ -9,7 +9,9 @@
 
   <body>
     {% block 'dashboard' %}
-    <div class="projetosContainer">
+    <div class="sideTopicos" id="sideMenu"></div>
+
+    <div class="projetosContainer" id="projeto-{{ forloop.counter }}">
       <h1>Projetos</h1>
 
       {% for projeto in projetos %}
@@ -24,11 +26,19 @@
           class="projetoImg"
         />
 
+        <div class="imgContainer">
+          {% for imagem in projeto.imagens %} {% if forloop.counter <= 5 %}
+          <img
+            src="{% static 'img/' %}{{ imagem }}"
+            alt="Imagem de {{ projeto.nome }}"
+            class="imgPequena"
+          />
+          {% endif %} {% endfor %}
+        </div>
         {% else %}
         <p>Sem Imagens</p>
         {% endif %}
 
-        <p>{{ projeto.tipo }}</p>
         <p>
           <img
             src="{% static 'img/icons/code.webp' %}"
@@ -77,44 +87,112 @@
               <h2>Figma</h2>
             </button>
           </a>
+          {% endif %} {% if projeto.website %}
+          <a href="{{ projeto.website }}" target="blank">
+            <button class="homeButton">
+              <img
+                src="{% static 'img/icons/website.webp'%}"
+                class="menuImagem"
+                alt="Website"
+              />
+              <h2>Website</h2>
+            </button>
+          </a>
           {% endif %}
         </div>
         <br />
+        <br />
       </div>
+      <br />
       {% empty %}
       <p>Não há projetos disponíveis.</p>
       {% endfor %}
     </div>
 
-    <div id="overlay" class="imageOverlay"></div>
+    <div id="overlay">
+      <img id="zoomedImage" src="" alt="Zoomed Image" />
+    </div>
 
     <script>
       window.addEventListener("load", function () {
-        const images = document.querySelectorAll(".projetoImg");
+        const projects = document.querySelectorAll(".projetoItem");
+        const sideMenu = document.getElementById("sideMenu");
+        const overlay = document.getElementById("overlay");
+        const zoomedImage = document.getElementById("zoomedImage");
 
-        images.forEach((image) => {
-          image.onload = function () {
-            const width = image.naturalWidth;
-            const height = image.naturalHeight;
+        projects.forEach((project) => {
+          const mainImage = project.querySelector(".projetoImg");
+          const projectName = project.querySelector("h2").innerText;
+          const button = document.createElement("button");
+          const thumbnails = project.querySelectorAll(".imgPequena");
+
+          button.innerHTML = `<hr /> ${projectName}`;
+          button.classList.add("sideElement");
+
+          button.addEventListener("click", function () {
+            project.scrollIntoView({ behavior: "smooth" });
+          });
+
+          sideMenu.appendChild(button);
+
+          mainImage.onload = function () {
+            const width = mainImage.naturalWidth;
+            const height = mainImage.naturalHeight;
 
             if (width > height) {
-              image.style.width = "50rem";
-              image.style.height = "auto";
+              mainImage.style.width = "50rem";
+              mainImage.style.height = "auto";
             } else {
-              image.style.height = "25rem";
-              image.style.width = "auto";
+              mainImage.style.height = "25rem";
+              mainImage.style.width = "auto";
             }
           };
 
-          if (image.complete) {
-            image.onload();
+          if (mainImage.complete) {
+            mainImage.onload();
           }
 
-          image.addEventListener("click", function () {
-            image.classList.toggle("enlargedImage");
+          thumbnails.forEach((thumbnail) => {
+            const width = thumbnail.naturalWidth;
+            const height = thumbnail.naturalHeight;
 
-            overlay.classList.toggle("active");
+            if (width > height) {
+              thumbnail.style.width = "8rem";
+              thumbnail.style.height = "auto";
+            } else {
+              thumbnail.style.height = "5rem";
+              thumbnail.style.width = "auto";
+            }
+
+            thumbnail.addEventListener("click", function () {
+              thumbnails.forEach((img) => img.classList.remove("selectedImg"));
+
+              mainImage.src = thumbnail.src;
+              mainImage.alt = thumbnail.alt;
+
+              thumbnail.classList.add("selectedImg");
+            });
           });
+
+          if (thumbnails.length > 0) {
+            thumbnails[0].classList.add("selectedImg");
+          }
+        });
+
+        document.querySelectorAll(".projetoImg").forEach((mainImage) => {
+          mainImage.addEventListener("click", function () {
+            zoomedImage.src = mainImage.src;
+            zoomedImage.alt = mainImage.alt;
+            overlay.classList.add("active");
+          });
+        });
+
+        overlay.addEventListener("click", function () {
+          overlay.classList.add("fade-out");
+
+          setTimeout(() => {
+            overlay.classList.remove("active", "fade-out");
+          }, 300);
         });
       });
     </script>

@@ -11,6 +11,7 @@ class Projetos(models.Model):
     status=models.CharField(max_length=32)
     repo=models.CharField(max_length=64)
     figma=models.CharField(max_length=64)
+    website=models.CharField(max_length=64)
 
     def __str__(self):
         return self.nome
