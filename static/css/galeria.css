@@ -10,7 +10,8 @@
 }
 
 .galeria {
-  width: 80vh;
+  all: unset;
+  display: inline-block;
   margin: auto;
   margin-bottom: 5rem;
   position: relative;
@@ -18,8 +19,7 @@
 
 .galeria img {
   width: 40vh;
-  margin: 1rem auto;
-  margin-left: -1rem;
+  margin: 0.75vh auto;
   border-radius: 15px;
   cursor: pointer;
   transition: filter 0.3s ease;
