@@ -16,7 +16,13 @@
 
       {% for projeto in projetos %}
       <div class="projetoItem">
+        {% if projeto.website %}
+        <a href="{{ projeto.website }}" target="blank" class="linkProjeto">
+          <h2>{{ projeto.nome }}</h2>
+        </a>
+        {% else %}
         <h2>{{ projeto.nome }}</h2>
+        {% endif %}
         <h4>{{ projeto.descricao }}</h4>
 
         {% if projeto.imagens %}
@@ -76,17 +82,6 @@
               <h2>GitHub</h2>
             </button>
           </a>
-          {% endif %} {% if projeto.figma %}
-          <a href="{{ projeto.figma }}" target="blank">
-            <button class="homeButton">
-              <img
-                src="{% static 'img/icons/figma.webp'%}"
-                class="menuImagem"
-                alt="Figma"
-              />
-              <h2>Figma</h2>
-            </button>
-          </a>
           {% endif %} {% if projeto.website %}
           <a href="{{ projeto.website }}" target="blank">
             <button class="homeButton">
@@ -96,6 +91,17 @@
                 alt="Website"
               />
               <h2>Website</h2>
+            </button>
+          </a>
+          {% endif %} {% if projeto.figma %}
+          <a href="{{ projeto.figma }}" target="blank">
+            <button class="homeButton">
+              <img
+                src="{% static 'img/icons/figma.webp'%}"
+                class="menuImagem"
+                alt="Figma"
+              />
+              <h2>Figma</h2>
             </button>
           </a>
           {% endif %}

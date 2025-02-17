@@ -1,3 +1,16 @@
+.linkProjeto {
+  text-decoration: none;
+  color: #e2e2e2;
+}
+
+.linkProjeto:hover {
+  color: #cac9c9;
+}
+
+.linkProjeto:active {
+  color: #b8b7b7;
+}
+
 .projetosContainer {
   display: flex;
   flex-direction: column;
