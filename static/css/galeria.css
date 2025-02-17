@@ -12,6 +12,7 @@
 .galeria {
   width: 80vh;
   margin: auto;
+  margin-bottom: 5rem;
 }
 
 .galeria img {
