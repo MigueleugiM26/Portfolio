@@ -33,6 +33,11 @@ body {
   padding: 2rem 1rem 2rem 1rem;
 }
 
+.homeSection p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 .homePFP {
   width: 10rem;
   border-radius: 50%;
@@ -73,6 +78,20 @@ body {
 .homeButton:active {
   background-color: #3f3d3d;
   border: 1px #554f4f solid;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.info p,
+.info h3 {
+  padding: 0;
+  margin: 0;
 }
 
 .sideTopicos {

@@ -24,6 +24,7 @@
 
     <div id="overlay">
       <img id="zoomedImage" src="" alt="Zoomed Image" />
+      <p id="zoomedImageTitle"></p>
     </div>
 
     <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
@@ -33,6 +34,7 @@
         var grid = document.querySelector(".galeria");
         var overlay = document.getElementById("overlay");
         var zoomedImage = document.getElementById("zoomedImage");
+        var zoomedImageTitle = document.getElementById("zoomedImageTitle");
 
         imagesLoaded(grid, function () {
           new Masonry(grid, {
@@ -47,6 +49,11 @@
           image.addEventListener("click", function () {
             zoomedImage.src = image.src;
             zoomedImage.alt = image.alt;
+
+            let altText = image.alt;
+            let projectName = altText.replace("Imagem de ", "");
+            zoomedImageTitle.textContent = projectName;
+
             overlay.classList.add("active");
           });
         });

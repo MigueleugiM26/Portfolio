@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import texts from "../assets/data/texts.json";
 
 const Home = () => {
   const getStaticPath = (path) => {
@@ -11,6 +12,42 @@ const Home = () => {
 
   const scrollToSection = (ref) => {
     ref.current.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const listText = (text) => {
+    const items = text.split("\n");
+    return (
+      <ul>
+        {items.map((item, index) => (
+          <li key={index}>{boldText(item)}</li>
+        ))}
+      </ul>
+    );
+  };
+
+  const boldText = (text) => {
+    return text
+      .split("**")
+      .map((part, index) =>
+        index % 2 === 1 ? <strong key={index}>{part}</strong> : part
+      );
+  };
+
+  const calculateAge = (nascimento) => {
+    const birth = new Date(nascimento);
+    const today = new Date();
+
+    let age = today.getFullYear() - birth.getFullYear();
+    const monthDifference = today.getMonth() - birth.getMonth();
+
+    if (
+      monthDifference < 0 ||
+      (monthDifference === 0 && today.getDate() < birth.getDate())
+    ) {
+      age--;
+    }
+
+    return age;
   };
 
   return (
@@ -44,57 +81,23 @@ const Home = () => {
             </a>
           </div>
 
-          <h2>(minhas informações aqui)</h2>
+          <div className="info">
+            <h3>{texts.nome}</h3>
+            <p>{texts.contato}</p>
+            <p>{texts.local}</p>
+            <p>{calculateAge(texts.nascimento)} anos</p>
+          </div>
         </section>
 
         <section className="homeSection">
           <h1 ref={introducaoRef}>Introdução</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut
-            dolor dictum, tempor libero aliquam, imperdiet elit. Integer posuere
-            tellus eu lorem sodales fermentum. Cras aliquam felis turpis, ut
-            eleifend purus tincidunt eget. Nulla in bibendum urna, at ultricies
-            risus. Nunc a semper dui. Proin tincidunt pretium dapibus. Etiam vel
-            mi placerat, porttitor dolor eu, scelerisque felis. Maecenas dictum,
-            erat vehicula rutrum euismod, mauris nunc maximus arcu, vitae
-            ultrices odio purus non felis. Curabitur pharetra consequat tempor.
-            Quisque pulvinar iaculis turpis, ac commodo risus varius in. Sed
-            eget dapibus purus. Quisque non purus eu tortor placerat iaculis.
-            Cras ac urna pulvinar, convallis dui vitae, auctor magna. Mauris
-            iaculis blandit gravida.
-          </p>
+          <p>{boldText(texts.introducao)}</p>
 
           <h1 ref={formacaoRef}>Formação</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut
-            dolor dictum, tempor libero aliquam, imperdiet elit. Integer posuere
-            tellus eu lorem sodales fermentum. Cras aliquam felis turpis, ut
-            eleifend purus tincidunt eget. Nulla in bibendum urna, at ultricies
-            risus. Nunc a semper dui. Proin tincidunt pretium dapibus. Etiam vel
-            mi placerat, porttitor dolor eu, scelerisque felis. Maecenas dictum,
-            erat vehicula rutrum euismod, mauris nunc maximus arcu, vitae
-            ultrices odio purus non felis. Curabitur pharetra consequat tempor.
-            Quisque pulvinar iaculis turpis, ac commodo risus varius in. Sed
-            eget dapibus purus. Quisque non purus eu tortor placerat iaculis.
-            Cras ac urna pulvinar, convallis dui vitae, auctor magna. Mauris
-            iaculis blandit gravida.
-          </p>
+          <p>{boldText(texts.formacao)}</p>
 
           <h1 ref={habilidadesRef}>Habilidades Técnicas</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut
-            dolor dictum, tempor libero aliquam, imperdiet elit. Integer posuere
-            tellus eu lorem sodales fermentum. Cras aliquam felis turpis, ut
-            eleifend purus tincidunt eget. Nulla in bibendum urna, at ultricies
-            risus. Nunc a semper dui. Proin tincidunt pretium dapibus. Etiam vel
-            mi placerat, porttitor dolor eu, scelerisque felis. Maecenas dictum,
-            erat vehicula rutrum euismod, mauris nunc maximus arcu, vitae
-            ultrices odio purus non felis. Curabitur pharetra consequat tempor.
-            Quisque pulvinar iaculis turpis, ac commodo risus varius in. Sed
-            eget dapibus purus. Quisque non purus eu tortor placerat iaculis.
-            Cras ac urna pulvinar, convallis dui vitae, auctor magna. Mauris
-            iaculis blandit gravida.
-          </p>
+          <p style={{ width: "100%" }}>{listText(texts.habilidades)}</p>
         </section>
 
         <div className="sideTopicos">
