@@ -135,6 +135,7 @@ body {
     gap: 0;
     align-items: center;
     margin: auto;
+    margin-bottom: 5rem;
   }
 
   .homeSection {
@@ -152,10 +153,6 @@ body {
 @media (max-width: 1200px) {
   .sideTopicos {
     display: none;
-  }
-
-  .homeContainer {
-    margin-bottom: 5rem;
   }
 }
 
