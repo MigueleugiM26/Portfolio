@@ -29,7 +29,7 @@ const Home = () => {
     return text
       .split("**")
       .map((part, index) =>
-        index % 2 === 1 ? <strong key={index}>{part}</strong> : part
+        index % 2 === 1 ? <strong key={index}>{part}</strong> : part,
       );
   };
 
@@ -54,7 +54,7 @@ const Home = () => {
     <>
       <div className="homeContainer">
         <section className="homeSection sticky">
-          <img src={getStaticPath("img/pfp.webp")} className="homePFP" />
+          <img src={getStaticPath("img/pfp.jpeg")} className="homePFP" />
           <div className="homeButtonContainer">
             <a href="https://github.com/MigueleugiM26" target="blank">
               <button className="homeButton">
