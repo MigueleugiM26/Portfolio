@@ -13788,10 +13788,9 @@ const J0 = () => {
   I0 =
     "Completei meu Ensino Fundamental II na **Escola Imaculada Conceição (Curado 1)**. Lá, eu também fiz cursos preparatórios, e eu realizei a prova para entrar na **Escola Técnica Estadual Maximiano Accioly Campos (ETEMAC)**, cursando **Redes de Computadores**, onde eu concluí o meu ensino médio. Na ETEMAC, eu aprendi diversas coisas relacinadas à área de programação, e foi lá onde eu obtive uma boa base, o que me ajudou bastante na faculdade. As principais linguagens que eu aprendi na ETEMAC foram **C++, C# e Java**, e também foi lá onde eu comecei a aprender sobre criação de sites **(HTML, CSS, JavaScript, etc)**. Após a ETEMAC, eu entrei na faculdade **Estácio do Recife**, onde eu estou estudando atualmente. Eu estou no meu sétimo período, e sempre estou aprendendo coisas novas. Fora da faculdade, eu também tento aprender novas tecnologias por pura curiosidade, como, por exemplo, **Django, Vite, JavaFX**, etc.",
   ev = `Backend: Java, Python, C++, C, Django, PHP, SQL 
- Frontend: HTML, CSS, JavaScript, React, Vite, JavaFX, Figma 
+ Frontend: HTML, CSS, JavaScript, React, Vite, NextJS, JavaFX, Figma 
  Inglês avançado 
  Espanhol básico 
- Japonês básico 
  Facilidade em trabalhar e se comunicar com uma equipe 
  Código legível 
  Aprendizado Rápido`,
