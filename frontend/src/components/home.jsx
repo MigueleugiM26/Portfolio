@@ -34,7 +34,8 @@ const Home = () => {
   };
 
   const calculateAge = (nascimento) => {
-    const birth = new Date(nascimento);
+    // Append noon time to avoid UTC timezone off-by-one on date-only strings
+    const birth = new Date(nascimento + "T12:00:00");
     const today = new Date();
 
     let age = today.getFullYear() - birth.getFullYear();
@@ -54,9 +55,14 @@ const Home = () => {
     <>
       <div className="homeContainer">
         <section className="homeSection sticky">
-          <img src={getStaticPath("img/pfp.jpeg")} className="homePFP" />
+          {/* Added alt text for accessibility */}
+          <img
+            src={getStaticPath("img/pfp.jpeg")}
+            className="homePFP"
+            alt={texts.nome}
+          />
           <div className="homeButtonContainer">
-            <a href="https://github.com/MigueleugiM26" target="blank">
+            <a href={texts.github} target="_blank" rel="noopener noreferrer">
               <button className="homeButton">
                 <img
                   src={getStaticPath("img/icons/github.webp")}
@@ -66,10 +72,7 @@ const Home = () => {
                 <h2>GitHub</h2>
               </button>
             </a>
-            <a
-              href="https://www.linkedin.com/in/miguel-gabriel-a63b00226/"
-              target="blank"
-            >
+            <a href={texts.linkedin} target="_blank" rel="noopener noreferrer">
               <button className="homeButton">
                 <img
                   src={getStaticPath("img/icons/linkedin.webp")}

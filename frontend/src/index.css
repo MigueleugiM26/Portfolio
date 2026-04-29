@@ -2,20 +2,40 @@
   font-family: monospace, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --color-text: rgba(255, 255, 255, 0.87);
+  --color-text-muted: rgba(255, 255, 255, 0.5);
+  --color-bg: #242424;
+  --color-surface: #1a1a1a;
+  --color-surface-hover: #212121;
+  --color-surface-active: #302f2f;
+  --color-surface-active-border: #413e3e;
+  --color-border: #383737;
+  --color-border-subtle: #8a8080;
+  --color-accent: #646cff;
+  --icon-filter: invert(100%);
 }
 
-a {
-  font-weight: 500;
-  text-decoration: inherit;
+[data-theme="light"] {
+  --color-text: #1a1a2e;
+  --color-text-muted: #555577;
+  --color-bg: #f0f0f5;
+  --color-surface: #e2e2ea;
+  --color-surface-hover: #d8d8e4;
+  --color-surface-active: #c8c8d8;
+  --color-surface-active-border: #aaaacc;
+  --color-border: #b0b0c8;
+  --color-border-subtle: #8888aa;
+  --color-accent: #646cff;
+  --icon-filter: invert(0%);
+}
+
+html {
+  color-scheme: light dark;
 }
 
 body {
@@ -24,6 +44,17 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+a {
+  font-weight: 500;
+  color: inherit;
+  text-decoration: inherit;
 }
 
 h1 {
@@ -38,23 +69,35 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  color: var(--color-text);
+  background-color: var(--color-surface);
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
+  transition:
+    border-color 0.25s,
+    background-color 0.25s,
+    color 0.25s;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+button:hover {
+  border-color: var(--color-accent);
+}
+
+.themeToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-text);
+  cursor: pointer;
+  transition:
+    border-color 0.25s,
+    color 0.25s;
+}
+
+.themeToggle:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }

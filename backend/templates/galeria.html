@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% load static %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
   <head>
     {% block css %}
@@ -17,6 +17,7 @@
         <img
           src="{% static 'img/' %}{{ imagem }}"
           alt="Imagem de {{ projeto.nome }}"
+          loading="lazy"
         />
         {% endfor %} {% empty %}{% endfor %}
       </div>
@@ -43,6 +44,7 @@
             gutter: 25,
             fitWidth: true,
           });
+          grid.classList.add("loaded");
         });
 
         document.querySelectorAll(".galeria img").forEach((image) => {
@@ -59,12 +61,20 @@
         });
 
         overlay.addEventListener("click", function () {
-          overlay.classList.add("fade-out");
+          closeOverlay();
+        });
 
+        // Close overlay with Escape key
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") closeOverlay();
+        });
+
+        function closeOverlay() {
+          overlay.classList.add("fade-out");
           setTimeout(() => {
             overlay.classList.remove("active", "fade-out");
           }, 300);
-        });
+        }
       });
     </script>
 

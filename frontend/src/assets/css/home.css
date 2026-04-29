@@ -29,7 +29,7 @@ body {
   max-width: 50rem;
   border-radius: 15px;
   margin-top: 3rem;
-  padding: 2rem 1rem 2rem 1rem;
+  padding: 2rem 1rem;
 }
 
 .homeSection p {
@@ -40,7 +40,7 @@ body {
 .homePFP {
   width: 10rem;
   border-radius: 50%;
-  outline: 1px #8a8080 solid;
+  outline: 1px solid var(--color-border-subtle);
   outline-offset: 0.5rem;
 }
 
@@ -58,25 +58,29 @@ body {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  background-color: #242424;
+  color: var(--color-text);
+  background-color: var(--color-surface);
   font-size: 8px;
   text-align: center;
   user-select: none;
   cursor: pointer;
-  padding: 0.25rem 1.5rem 0.25rem 1.5rem;
+  padding: 0.25rem 1.5rem;
   border-radius: 12px;
-  border: 1px #383737 solid;
-  transition: 0.3s;
+  border: 1px solid var(--color-border);
+  transition:
+    background-color 0.3s,
+    border-color 0.3s,
+    color 0.3s;
 }
 
 .homeButton:hover {
-  background-color: #302f2f;
-  border: 1px #413e3e solid;
+  background-color: var(--color-surface-active);
+  border-color: var(--color-surface-active-border);
 }
 
 .homeButton:active {
-  background-color: #3f3d3d;
-  border: 1px #554f4f solid;
+  background-color: var(--color-surface-active);
+  border-color: var(--color-border-subtle);
 }
 
 .info {
@@ -109,18 +113,20 @@ body {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
-  color: #fff;
+  color: var(--color-text);
   cursor: pointer;
   margin-left: 0;
-  transition: 0.3s;
-  border: 0px transparent solid;
+  transition:
+    color 0.3s,
+    margin-left 0.3s;
+  border: 0px solid transparent;
 }
 
 .sideElement:hover,
 .sideElement:active {
-  color: #8a8080;
+  color: var(--color-text-muted);
   margin-left: 0.5rem;
-  border: 0px transparent solid;
+  border: 0px solid transparent;
 }
 
 .sticky {

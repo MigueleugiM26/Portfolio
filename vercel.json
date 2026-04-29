@@ -15,5 +15,7 @@
 
       "dest": "portfolio/wsgi.py"
     }
-  ]
+  ],
+
+  "toolbar": false
 }
